@@ -1,0 +1,204 @@
+<!doctype html>
+<!--
+  =============================================================================
+  FILE: benefits.html — Club benefits / features
+  Sections: head → background → header → benefit cards → CTA → benefits footer
+  =============================================================================
+-->
+<!-- GITHUB_UPLOAD_SEQUENCE: part-10-of-22 (benefits.html — benefits / features page) -->
+<html lang="en">
+  <head>
+    <!-- ========== Benefits page: document head (meta, fonts, styles, Tailwind) ========== -->
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Benefits • KUET Fitness Club</title>
+    <meta name="description" content="Benefits of joining KUET Fitness Club: gym access, guidance, community support, and events." />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+
+    <link rel="stylesheet" href="./styles.css" />
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            fontFamily: { sans: ["Inter", "ui-sans-serif", "system-ui", "sans-serif"] },
+            colors: {
+              ink: { 950: "#050608", 900: "#0a0c10", 850: "#0f1218", 800: "#121722" },
+              neon: { 500: "#6DFF5E", 600: "#37FF5A" },
+              ember: { 500: "#FF6B2C" },
+            },
+          },
+        },
+      };
+    </script>
+  </head>
+
+  <body class="bg-ink-950 text-white font-sans antialiased">
+    <!-- ========== Benefits page: decorative background blobs ========== -->
+    <div aria-hidden="true" class="fixed inset-0 -z-10 overflow-hidden">
+      <div class="absolute -top-24 -left-24 h-80 w-80 rounded-full bg-neon-600/10 blur-3xl"></div>
+      <div class="absolute top-1/3 -right-24 h-96 w-96 rounded-full bg-ember-500/8 blur-3xl"></div>
+      <div class="absolute bottom-0 left-1/4 h-72 w-72 rounded-full bg-neon-500/8 blur-3xl"></div>
+    </div>
+
+    <!-- ========== Benefits page: sticky site header + navigation ========== -->
+    <header class="fixed top-0 inset-x-0 z-50 border-b border-white/10 bg-ink-950/75 backdrop-blur supports-[backdrop-filter]:bg-ink-950/60">
+      <nav class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div class="flex h-16 items-center justify-between">
+          <a href="./index.html" class="group inline-flex items-center gap-2 focus-neon rounded-md" aria-label="KUET Fitness Club Home">
+            <span class="inline-flex h-9 w-9 items-center justify-center rounded-xl border border-white/10 bg-white/5 shadow-[0_0_0_1px_rgba(255,255,255,.04)]">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                <path d="M7 10V14M17 10V14M4 9.5H20M4 14.5H20" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+                <path d="M2.5 11.2V12.8C2.5 13.46 3.04 14 3.7 14H4.8V10H3.7C3.04 10 2.5 10.54 2.5 11.2Z" fill="currentColor" opacity="0.9" />
+                <path d="M21.5 11.2V12.8C21.5 13.46 20.96 14 20.3 14H19.2V10H20.3C20.96 10 21.5 10.54 21.5 11.2Z" fill="currentColor" opacity="0.9" />
+              </svg>
+            </span>
+            <span class="leading-tight">
+              <span class="block text-sm font-extrabold tracking-wide">KUET <span class="text-neon-500">Fitness</span> Club</span>
+              <span class="block text-[11px] text-white/60 -mt-0.5">Stronger together</span>
+            </span>
+          </a>
+
+          <div class="hidden md:flex items-center gap-1">
+            <a class="px-3 py-2 text-sm text-white/70 hover:text-white focus-neon rounded-md" href="./about.html">About</a>
+            <a class="px-3 py-2 text-sm text-white hover:text-white focus-neon rounded-md" href="./benefits.html">Benefits</a>
+            <a class="px-3 py-2 text-sm text-white/70 hover:text-white focus-neon rounded-md" href="./events.html">Events</a>
+            <a class="px-3 py-2 text-sm text-white/70 hover:text-white focus-neon rounded-md" href="./team.html">Team</a>
+            <a class="px-3 py-2 text-sm text-white/70 hover:text-white focus-neon rounded-md" href="./gallery.html">Gallery</a>
+            <a class="px-3 py-2 text-sm text-white/70 hover:text-white focus-neon rounded-md" href="./membership.html">Membership</a>
+            <a class="px-3 py-2 text-sm text-white/70 hover:text-white focus-neon rounded-md" href="./contact.html">Contact</a>
+          </div>
+
+          <div class="flex items-center gap-3">
+            <a href="./membership.html" class="hidden sm:inline-flex items-center justify-center rounded-xl bg-neon-600 px-4 py-2 text-sm font-bold text-black hover:brightness-110 transition focus-neon">Join Now</a>
+            <button id="menuBtn" class="md:hidden inline-flex items-center justify-center rounded-xl border border-white/10 bg-white/5 px-3 py-2 text-white/90 hover:bg-white/10 transition focus-neon" aria-label="Open menu" aria-expanded="false" aria-controls="mobileMenu">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                <path d="M4 7H20M4 12H20M4 17H20" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+              </svg>
+            </button>
+          </div>
+        </div>
+
+        <!-- Benefits page: mobile navigation drawer -->
+        <div id="mobileMenu" class="md:hidden hidden pb-4" role="dialog" aria-label="Mobile navigation">
+          <div class="mt-2 rounded-2xl border border-white/10 bg-ink-900/70 backdrop-blur px-2 py-2">
+            <a class="block px-3 py-2 text-sm text-white/80 hover:text-white hover:bg-white/5 rounded-xl" href="./about.html">About</a>
+            <a class="block px-3 py-2 text-sm text-white hover:bg-white/5 rounded-xl" href="./benefits.html">Benefits</a>
+            <a class="block px-3 py-2 text-sm text-white/80 hover:text-white hover:bg-white/5 rounded-xl" href="./events.html">Events</a>
+            <a class="block px-3 py-2 text-sm text-white/80 hover:text-white hover:bg-white/5 rounded-xl" href="./team.html">Team</a>
+            <a class="block px-3 py-2 text-sm text-white/80 hover:text-white hover:bg-white/5 rounded-xl" href="./gallery.html">Gallery</a>
+            <a class="block px-3 py-2 text-sm text-white/80 hover:text-white hover:bg-white/5 rounded-xl" href="./membership.html">Membership</a>
+            <a class="block px-3 py-2 text-sm text-white/80 hover:text-white hover:bg-white/5 rounded-xl" href="./contact.html">Contact</a>
+            <a class="mt-2 block px-3 py-2 text-sm font-bold text-black bg-neon-600 rounded-xl text-center hover:brightness-110 transition" href="./membership.html">Join Now</a>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <!-- ========== Benefits page: main content ========== -->
+    <main class="pt-16">
+      <section class="py-16">
+        <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <!-- Benefits page: page title + intro -->
+          <div class="reveal">
+            <div class="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-3 py-1 text-xs text-white/80">
+              <span class="h-1.5 w-1.5 rounded-full bg-neon-600"></span>
+              Benefits
+            </div>
+            <h1 class="mt-5 text-3xl sm:text-4xl font-black tracking-tight">
+              Benefits that keep you <span class="text-neon-500">consistent</span>
+            </h1>
+            <p class="mt-4 text-white/70 max-w-3xl">
+              A structured club experience—less confusion, more progress. We help you train smarter with guidance,
+              community, and goals.
+            </p>
+          </div>
+
+          <!-- Benefits page: feature cards (gym, guidance, community, events) -->
+          <div class="mt-10 grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
+            <div class="reveal rounded-3xl border border-white/10 bg-white/5 p-6 hover:bg-white/[0.07] transition">
+              <div class="flex items-center gap-3">
+                <div class="h-11 w-11 rounded-2xl bg-neon-600/15 border border-neon-600/25 grid place-items-center">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                    <path d="M7 10V14M17 10V14M4 9.5H20M4 14.5H20" stroke="#6DFF5E" stroke-width="2" stroke-linecap="round" />
+                  </svg>
+                </div>
+                <div class="text-base font-extrabold">Gym Access</div>
+              </div>
+              <p class="mt-4 text-sm text-white/70">Consistent training slots and a supportive environment to build your routine.</p>
+            </div>
+
+            <div class="reveal rounded-3xl border border-white/10 bg-white/5 p-6 hover:bg-white/[0.07] transition">
+              <div class="flex items-center gap-3">
+                <div class="h-11 w-11 rounded-2xl bg-neon-600/15 border border-neon-600/25 grid place-items-center">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                    <path d="M12 2l3 6 6 .8-4.5 4 1.3 6.2L12 16.9 6.2 19 7.5 12.8 3 8.8 9 8l3-6z" fill="#6DFF5E" opacity=".9" />
+                  </svg>
+                </div>
+                <div class="text-base font-extrabold">Expert Guidance</div>
+              </div>
+              <p class="mt-4 text-sm text-white/70">Form checks, beginner plans, and progress tracking from experienced members.</p>
+            </div>
+
+            <div class="reveal rounded-3xl border border-white/10 bg-white/5 p-6 hover:bg-white/[0.07] transition">
+              <div class="flex items-center gap-3">
+                <div class="h-11 w-11 rounded-2xl bg-neon-600/15 border border-neon-600/25 grid place-items-center">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                    <path d="M16 11c1.7 0 3-1.3 3-3s-1.3-3-3-3-3 1.3-3 3 1.3 3 3 3Zm-8 0c1.7 0 3-1.3 3-3S9.7 5 8 5 5 6.3 5 8s1.3 3 3 3Z" fill="#6DFF5E" opacity=".9" />
+                    <path d="M8 13c-2.8 0-5 1.5-5 3.5V19h10v-2.5C13 14.5 10.8 13 8 13Zm8 0c-.4 0-.8 0-1.1.1 1.3.9 2.1 2 2.1 3.4V19h7v-2.5c0-2-2.2-3.5-5-3.5Z" fill="#6DFF5E" opacity=".75" />
+                  </svg>
+                </div>
+                <div class="text-base font-extrabold">Community Support</div>
+              </div>
+              <p class="mt-4 text-sm text-white/70">Train with friends, stay accountable, and celebrate milestones together.</p>
+            </div>
+
+            <div class="reveal rounded-3xl border border-white/10 bg-white/5 p-6 hover:bg-white/[0.07] transition">
+              <div class="flex items-center gap-3">
+                <div class="h-11 w-11 rounded-2xl bg-neon-600/15 border border-neon-600/25 grid place-items-center">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                    <path d="M7 2h10v4a5 5 0 0 1-10 0V2Z" fill="#6DFF5E" opacity=".9" />
+                    <path d="M8 18h8v2H8v-2Z" fill="#6DFF5E" opacity=".85" />
+                    <path d="M10 12h4l-1 6h-2l-1-6Z" fill="#6DFF5E" opacity=".75" />
+                  </svg>
+                </div>
+                <div class="text-base font-extrabold">Events & Competitions</div>
+              </div>
+              <p class="mt-4 text-sm text-white/70">Friendly challenges, meets, and showcases to keep motivation high.</p>
+            </div>
+          </div>
+
+          <!-- Benefits page: “next step” call-to-action -->
+          <div class="mt-10 reveal rounded-3xl border border-white/10 bg-white/5 p-6">
+            <div class="text-sm font-extrabold">Next step</div>
+            <p class="mt-2 text-sm text-white/70">
+              Ready to start? Apply for membership and we’ll guide you to the right training track.
+            </p>
+            <a href="./membership.html" class="mt-4 inline-flex items-center justify-center rounded-2xl bg-neon-600 px-6 py-3 text-sm font-extrabold text-black hover:brightness-110 transition focus-neon">
+              Join Now
+            </a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- GITHUB_UPLOAD_SEQUENCE: part-18-of-22 (benefits.html — site footer; can bundle with part-10) -->
+    <!-- ========== Benefits page: site footer (copyright, link home) ========== -->
+    <footer class="border-t border-white/10 bg-ink-950">
+      <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-10">
+        <div class="flex items-center justify-between gap-6 flex-wrap">
+          <div class="text-sm text-white/70">© <span id="year"></span> <span class="font-extrabold text-white">KUET Fitness Club</span>. All rights reserved.</div>
+          <a href="./index.html" class="text-sm font-bold text-white/70 hover:text-white focus-neon rounded-md">Home</a>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Benefits page: shared JS (mobile menu, scroll reveal, footer year) -->
+    <script src="./script.js"></script>
+  </body>
+</html>
+

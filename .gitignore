@@ -1,0 +1,17 @@
+# GITHUB_UPLOAD_SEQUENCE: part-2-of-22 (.gitignore — add early; keeps junk out of Git)
+
+# OS / editor
+.DS_Store
+Thumbs.db
+*.swp
+*.swo
+
+# Logs / temp
+*.log
+*.tmp
+.cache/
+
+# Optional local tooling
+node_modules/
+.env
+.env.*
